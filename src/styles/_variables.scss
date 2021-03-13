@@ -162,8 +162,11 @@
   // ################################################################
   //    Z-INDEXES
   // ################################################################
-  --burgher-menu-z-index: 11;
-  --mobile-menu-z-index: 10;
+  //--burgher-menu-z-index: 11;
+  //--mobile-menu-z-index: 10;
+  --sidebar-burgher-z-index: 11;
+  --menu-panel-z-index: -1;
+  --menu-panel-open-z-index: 10;
 
 
   // ################################################################

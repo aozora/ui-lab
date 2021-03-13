@@ -1,3 +1,45 @@
 .MenuPanel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  background-color: var(--color-secondary);
+  z-index: var(--menu-panel-z-index);
+  //transform: translateX(-100%);
 
+  header {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 32px;
+    width: 100%;
+    margin: 4.44rem 2.22rem 4.44rem 4.44rem;
+    padding: 0;
+  }
+
+  nav {
+    display: block;
+    grid-column: 2/span 4;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style-type: none;
+    margin: 1rem 0 0 0;
+
+    a {
+      color: var(--color-white);
+      font-size: var(--text-scale-1);
+      font-weight: 700;
+    }
+  }
+}
+
+.MenuPanelIsOpen {
+  z-index: var(--menu-panel-open-z-index);
 }

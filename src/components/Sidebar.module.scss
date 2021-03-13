@@ -9,6 +9,7 @@
   left: 0;
   width: var(--sidebar-width-collapsed);
   height: var(--sidebar-width-collapsed);
+  z-index: var(--sidebar-burgher-z-index);
 }
 
 
@@ -31,7 +32,7 @@
     height: 3px;
     background-color: var(--color-black);
     transform-origin: 50% 50%;
-    transition: transform 0.5s cubic-bezier(0.23, 1, 0.38, 1) 0s;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.38, 1) 0s, background-color .7s ease;
     will-change: transform;
   }
 
@@ -48,15 +49,13 @@
   .SidebarBurger {
     span:first-child {
       transform: scale(1) rotate(45deg);
+      background-color: var(--color-white);
     }
 
     span:last-child {
       transform: scale(1) rotate(-45deg);
+      background-color: var(--color-white);
     }
-
   }
 }
 
-.MenuPanel{
-
-}
