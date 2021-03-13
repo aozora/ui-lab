@@ -2,25 +2,83 @@
   "name": "react-ui-lab",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.0.1"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "prettier": "^2.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.3",
+    "sass": "^1.32.8",
+    "web-vitals": "^1.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-cypress": "^2.11.2",
+    "eslint-plugin-i18next": "^5.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.5",
+    "eslint-plugin-jest-dom": "^3.6.5",
+    "eslint-plugin-mocha": "^8.0.0",
+    "eslint-plugin-no-unsanitized": "^3.1.4",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-react-security": "^0.1.0",
+    "eslint-plugin-testing-library": "^3.10.1",
+    "sass-loader": "^11.0.1"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "plugin:jest/recommended",
+      "plugin:jest-dom/recommended",
+      "plugin:testing-library/react"
+    ],
+    "overrides": [
+      {
+        "env": {
+          "jest/globals": true
+        },
+        "plugins": [
+          "jest",
+          "jest-dom",
+          "testing-library",
+          "react-security",
+          "no-unsanitized"
+        ],
+        "files": [
+          "**/*.ts?(x)"
+        ],
+        "rules": {
+          "no-debugger": "warn",
+          "no-useless-rename": 0,
+          "additional-typescript-only-rule": "warn",
+          "react-hooks/rules-of-hooks": "error",
+          "react-hooks/exhaustive-deps": "warn",
+          "max-len": [
+            "off"
+          ],
+          "no-danger": "warn",
+          "no-find-dom-node": "warn",
+          "jsx-no-script-url": "warn",
+          "jsx-no-target-blank": "warn",
+          "jsx-props-no-spreading": "warn",
+          "no-refs": "warn",
+          "no-unsanitized/method": "error",
+          "no-unsanitized/property": "error",
+          "testing-library/await-async-query": "error",
+          "testing-library/no-await-sync-query": "error",
+          "testing-library/no-debug": "warn"
+        }
+      }
     ]
   },
   "browserslist": {

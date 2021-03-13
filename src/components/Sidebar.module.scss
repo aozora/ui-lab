@@ -1,0 +1,44 @@
+@import '../styles/shared';
+
+
+.Sidebar {
+  --sidebar-width-collapsed: 4.44rem;
+
+  position: fixed;
+  top: 50vh;
+  left: 0;
+  width: var(--sidebar-width-collapsed);
+  height: var(--sidebar-width-collapsed);
+}
+
+
+.SidebarBurger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.44rem;
+  height: 4.44rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  background-color: transparent;
+
+  span {
+    position: absolute;
+    top: 50%;
+    width: 24px;
+    height: 3px;
+    background-color: var(--color-black);
+    transform-origin: 50% 50%;
+    will-change: transform;
+  }
+
+  span:first-child {
+  }
+
+  span:last-child{
+
+  }
+}
+

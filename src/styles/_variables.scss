@@ -1,0 +1,176 @@
+/** ****************************************************************
+
+    CSS Variables
+
+    Font rules are setup in base.scss for all major
+    elements using CSS variables.
+    When there's need to override a font rule, there's no need to
+    set again the rules, but it's best to just set a new value for
+    a CSS variable for a font rule.
+
+    **************************************************************** */
+
+:root {
+  // ################################################################
+  //    COLORS
+  // ################################################################
+  --color-primary: #000;
+  --color-secondary: #1a1a1a;
+  --color-black: #000;
+  --color-white: #fff;
+
+
+  // grayscale
+  --color-dark-gray: var(--color-secondary);
+
+  // background color
+  --color-body-background: var(--color-white);
+
+
+  // ################################################################
+  //    STATES
+  // ################################################################
+  --selection-color: var(--color-white);
+  --selection-background-color: var(--color-primary);
+  --placeholder-color: var(--color-black);
+  --focus-ring-color: rgb(38, 128, 235);
+  --focus-ring-style: 1px dashed var(--focus-ring-color);
+
+
+  // ################################################################
+  //    SHADOWS
+  // ################################################################
+  --default-box-shadow: none;
+  --default-text-shadow: none;
+  --title-text-shadow: rgba(0, 0, 0, 0.5) 0px 15px 25px, rgba(0, 0, 0, 0.5) 0px 5px 10px;
+  --card-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  --card-hover-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+
+
+  // ################################################################
+  //    GLOBALS
+  // ################################################################
+  --global-border-radius: 1rem;
+
+
+  // ################################################################
+  //    SECTIONING
+  // ################################################################
+  --section-lateral-margin: 1rem;
+  --section-max-width: 65ch;
+
+
+  // ################################################################
+  //    TYPOGRAPHY SCALE & FONTS
+  // ################################################################
+  --variable-font-family: '', Helvetica, Roboto, Arial, sans-serif;
+  --variable-heading-font-family: 'Marvin Visions Variable', sans-serif;
+  --body-font-family: Helvetica, Roboto, Arial, sans-serif;
+  --heading-font-family: Helvetica, sans-serif;
+
+  --baseline: 1.5;
+  --body-font-weight: 400;
+  --heading-font-weight: 400;
+  --kerning: normal; // auto (default), normal (enabled), none (disabled)
+  --body-font-color: var(--color-black);
+
+
+  /* type modular scale */
+  // body font size
+  --min-text-size: 18px; // 18px - html is set to 112.5%
+  --target-text-size: 2vw; // 20px
+  --max-text-size: 22px; // 22px
+  --text-base-size: 1rem; // 18px - html is set to 112.5%
+
+  // type scale
+  --text-scale-ratio: 1.25; // base mobile ratio
+  --text-scale-1: calc(1rem * var(--text-scale-ratio)); // h3 22.5px
+  --text-scale-2: calc(var(--text-scale-1) * var(--text-scale-ratio)); // H2 28.125px
+  --text-scale-3: calc(var(--text-scale-2) * var(--text-scale-ratio)); // 35.15px
+  --text-scale-4: calc(var(--text-scale-3) * var(--text-scale-ratio)); // 43.94px
+  --text-scale-5: calc(var(--text-scale-4) * var(--text-scale-ratio)); // 54.93px
+  --text-scale-6: calc(var(--text-scale-5) * var(--text-scale-ratio)); // h1 68.66px
+
+
+  /* max text sizes  */
+  --text-max-width: 38rem;
+
+  /* vf initial values */
+  --heading-weight: 400;
+  --text-weight: var(--body-font-weight);
+
+  /* spacing */
+  --text-letter-spacing: 1.2px;
+  --text-on-dark-letter-spacing: 2px;
+
+  /* Paragraph variables */
+  --p-line-height-min: 1.5;
+  --p-line-height-max: 1.6;
+  --p-font-size-min: 1.0;
+  --p-font-size-max: 1.25;
+
+  /* H1 variables */
+  --h1-font-size: clamp(1.667rem, 5.5vw, var(--text-scale-6));
+  --h1-line-height: 1.5;
+
+  /* H2 variables */
+  --h2-font-size: clamp(1.111rem, 5.5vw, var(--text-scale-2));
+  --h2-line-height: 1.5;
+
+  /* H3 variables */
+  --h3-font-size: clamp(1rem, 5.5vw, var(--text-scale-1));
+  --h3-line-height: 1.5;
+
+  /* Dropcap variables */
+  --dc-line-height: .8;
+  --dc-font-size: 3.4;
+
+  /* Blockquote variables */
+  --bq-line-height: 1.5;
+  --bq-font-size-min: 2.7;
+  --bq-font-size-max: 5;
+
+
+  // ################################################################
+  //    BUTTONS
+  // ################################################################
+
+  --button-min-width: 96px;
+  --button-height: 40px;
+  --button-padding: 10px 1rem;
+  --button-color: var(--color-white);
+  --button-background-color: var(--color-secondary);
+  --button-border: 2px solid var(--color-gray); // 1px solid $color-light-gray;
+  --button-border-radius: var(--global-border-radius);
+  --button-hover-border: 2px solid var(--color-gray); // 1px solid $color-light-gray;
+  --button-hover-background-color: var(--color-dark-gray);
+
+  --button-primary-color: var(--color-white);
+  --button-primary-background-color: var(--color-primary);
+  --button-primary-border: 2px solid var(--color-primary);
+
+
+  // ################################################################
+  //    FORM
+  // ################################################################
+  --form-field-height: 40px;
+  --form-field-border: 1px solid var(--color-light-gray);
+  --form-field-max-width: 240px;
+  --form-field-color: var(--color-dark-gray);
+  --form-field-background: var(--color-light-gray);
+
+  // ################################################################
+  //    Z-INDEXES
+  // ################################################################
+  --burgher-menu-z-index: 11;
+  --mobile-menu-z-index: 10;
+
+
+  // ################################################################
+  //    MENU
+  // ################################################################
+  --menu-height: 3.33rem;
+  --menu-mobile-height: 2.667rem;
+
+
+}
