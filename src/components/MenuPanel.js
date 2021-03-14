@@ -23,11 +23,12 @@ const MenuPanel = () => {
     timeline.fromTo(
       menuPanelRef.current,
       {
-        x: '-100%'
-        // y: 0
+        x: '-100%',
+        zIndex: -1
       },
       {
         x: 0,
+        zIndex: 10,
         duration: 1.2,
         ease: 'expo.inOut'
       }
@@ -47,12 +48,25 @@ const MenuPanel = () => {
         x: '0%',
         y: '0%',
         duration: 0.7,
-        delay: 0.2,
         stagger: 0.05,
         onComplete() {
           clearOpacity(elements);
         }
       }
+    );
+
+    // animate content 1
+    const contents = content1ToReveal.current.querySelectorAll('*');
+    timeline.fromTo(
+      contents,
+      {
+        x: '-100%'
+      },
+      {
+        x: 0,
+        duration: 0.5
+      },
+      '<'
     );
   }, [timeline]);
 
