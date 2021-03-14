@@ -3,7 +3,10 @@ import styles from './Hero.module.scss';
 
 const Hero = () => (
   <article className={styles.Hero}>
-    <h1>Your hero title here</h1>
+    <div>
+      <h1>Your hero title here</h1>
+      <p>Vero omnis sed recusandae voluptas repellat in omnis. Et maiores cumque incidunt voluptatum est.</p>
+    </div>
   </article>
 );
 

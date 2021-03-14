@@ -4,15 +4,22 @@ import gsap from 'gsap';
 import styles from './MenuPanel.module.scss';
 import { useAppState } from '../AppContext';
 
+const clearOpacity = node => {
+  gsap.set(node, { clearProps: 'opacity, visibility' });
+};
+
 const MenuPanel = () => {
   const { menuIsOpen } = useAppState();
   const menuPanelRef = useRef();
+  const menuToRevealAndStagger = useRef();
+  const content1ToReveal = useRef();
 
   const timeline = useMemo(() => {
     return gsap.timeline({ paused: true });
   }, []);
 
   useEffect(() => {
+    // animate menu panel
     timeline.fromTo(
       menuPanelRef.current,
       {
@@ -21,9 +28,30 @@ const MenuPanel = () => {
       },
       {
         x: 0,
-        // y: 0,
         duration: 1.2,
         ease: 'expo.inOut'
+      }
+    );
+
+    // animate menu links
+    const elements = menuToRevealAndStagger.current.querySelectorAll('li');
+    timeline.fromTo(
+      elements,
+      {
+        autoAlpha: 0,
+        x: '-50px',
+        y: '0%'
+      },
+      {
+        autoAlpha: 1,
+        x: '0%',
+        y: '0%',
+        duration: 0.7,
+        delay: 0.2,
+        stagger: 0.05,
+        onComplete() {
+          clearOpacity(elements);
+        }
       }
     );
   }, [timeline]);
@@ -42,7 +70,7 @@ const MenuPanel = () => {
     <section ref={menuPanelRef} className={`${styles.MenuPanel} ${menuIsOpen ? styles.MenuPanelIsOpen : ''}`}>
       <header>
         <nav>
-          <ul>
+          <ul ref={menuToRevealAndStagger}>
             <li>
               <a href="#">About</a>
             </li>
@@ -57,6 +85,10 @@ const MenuPanel = () => {
             </li>
           </ul>
         </nav>
+        <aside ref={content1ToReveal}>
+          <h6>Lorem ipsum sin ut dolorem</h6>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </aside>
       </header>
     </section>
   );
