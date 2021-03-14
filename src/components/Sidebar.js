@@ -1,16 +1,16 @@
 import React from 'react';
 import styles from './Sidebar.module.scss';
-import { useAppState } from '../AppContext';
+import { useAppDispatch, useAppState } from '../AppContext';
 
 const Sidebar = () => {
-  const { state, dispatch } = useAppState();
+  const { menuIsOpen } = useAppState();
+  const dispatch = useAppDispatch();
 
   return (
-    <div className={`${styles.Sidebar} ${state.menuIsOpen ? styles.SidebarIsOpen : ''}`}>
-      <div></div>
+    <div className={`${styles.Sidebar} ${menuIsOpen ? styles.SidebarIsOpen : ''}`}>
       <button type="button" className={styles.SidebarBurger} onClick={() => dispatch({ type: 'toggleMenu' })}>
-        <span></span>
-        <span></span>
+        <span />
+        <span />
       </button>
     </div>
   );

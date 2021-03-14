@@ -1,10 +1,11 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useRef, useEffect, useMemo } from 'react';
 import gsap from 'gsap';
 import styles from './MenuPanel.module.scss';
 import { useAppState } from '../AppContext';
 
 const MenuPanel = () => {
-  const { state } = useAppState();
+  const { menuIsOpen } = useAppState();
   const menuPanelRef = useRef();
 
   const timeline = useMemo(() => {
@@ -29,16 +30,16 @@ const MenuPanel = () => {
 
   useEffect(() => {
     if (menuPanelRef.current) {
-      if (state.menuIsOpen) {
+      if (menuIsOpen) {
         timeline.play();
       } else {
         timeline.reverse();
       }
     }
-  }, [menuPanelRef, state.menuIsOpen, timeline]);
+  }, [menuPanelRef, menuIsOpen, timeline]);
 
   return (
-    <section ref={menuPanelRef} className={`${styles.MenuPanel} ${state.menuIsOpen ? styles.MenuPanelIsOpen : ''}`}>
+    <section ref={menuPanelRef} className={`${styles.MenuPanel} ${menuIsOpen ? styles.MenuPanelIsOpen : ''}`}>
       <header>
         <nav>
           <ul>

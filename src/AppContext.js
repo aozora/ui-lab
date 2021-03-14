@@ -1,6 +1,7 @@
 import React, { useContext, createContext } from 'react';
 
-const AppContext = createContext();
+const AppStateContext = createContext();
+const AppDispatchContext = createContext();
 
 function appReducer(state, action) {
   switch (action.type) {
@@ -16,14 +17,25 @@ function appReducer(state, action) {
 
 function AppProvider({ children }) {
   const [state, dispatch] = React.useReducer(appReducer, { menuIsOpen: false });
-  // NOTE: you *might* need to memoize this value
-  // Learn more in http://kcd.im/optimize-context
-  const value = { state, dispatch };
-  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+
+  return (
+    <AppStateContext.Provider value={state}>
+      <AppDispatchContext.Provider value={dispatch}>{children}</AppDispatchContext.Provider>
+    </AppStateContext.Provider>
+  );
 }
 
 function useAppState() {
-  const context = useContext(AppContext);
+  const context = useContext(AppStateContext);
+
+  if (context === undefined) {
+    throw new Error('useAppState must be used within a AppProvider');
+  }
+
+  return context;
+}
+function useAppDispatch() {
+  const context = useContext(AppDispatchContext);
 
   if (context === undefined) {
     throw new Error('useAppState must be used within a AppProvider');
@@ -32,4 +44,4 @@ function useAppState() {
   return context;
 }
 
-export { AppProvider, useAppState };
+export { AppProvider, useAppState, useAppDispatch };
