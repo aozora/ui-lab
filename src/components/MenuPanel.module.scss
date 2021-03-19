@@ -37,11 +37,11 @@
     h6 {
       font-size: var(--text-scale-1); // 2.5vw;
       font-weight: 700;
-      color: var(--color-white);
+      color: var(--theme-color-white);
     }
 
     p {
-      color: var(--color-white);
+      color: var(--theme-color-white);
     }
   }
 
@@ -55,7 +55,7 @@
     margin: 1rem 0 0 0;
 
     a {
-      color: var(--color-white);
+      color: var(--theme-color-white);
       font-size: var(--text-scale-1);
       font-weight: 700;
       text-decoration: none;

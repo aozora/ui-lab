@@ -18,21 +18,21 @@
   --color-secondary: #5F4B8B;
   --color-black: #000;
   --color-white: #fff;
-
+  --theme-color-black: var(--color-black);
+  --theme-color-white: var(--color-white);
 
   // grayscale
   --color-dark-gray: var(--color-secondary);
 
   // background color
-  --color-body-background: var(--color-white);
-
+  --color-body-background: var(--theme-color-white);
 
   // ################################################################
   //    STATES
   // ################################################################
-  --selection-color: var(--color-white);
+  --selection-color: var(--theme-color-white);
   --selection-background-color: var(--color-primary);
-  --placeholder-color: var(--color-black);
+  --placeholder-color: var(--theme-color-black);
   --focus-ring-color: rgb(38, 128, 235);
   --focus-ring-style: 1px dashed var(--focus-ring-color);
 
@@ -72,7 +72,7 @@
   --body-font-weight: 400;
   --heading-font-weight: 400;
   --kerning: normal; // auto (default), normal (enabled), none (disabled)
-  --body-font-color: var(--color-black);
+  --body-font-color: var(--theme-color-black);
 
 
   /* type modular scale */
@@ -138,14 +138,14 @@
   --button-min-width: 96px;
   --button-height: 40px;
   --button-padding: 10px 1rem;
-  --button-color: var(--color-white);
+  --button-color: var(--theme-color-white);
   --button-background-color: var(--color-secondary);
   --button-border: 2px solid var(--color-gray); // 1px solid $color-light-gray;
   --button-border-radius: var(--global-border-radius);
   --button-hover-border: 2px solid var(--color-gray); // 1px solid $color-light-gray;
   --button-hover-background-color: var(--color-dark-gray);
 
-  --button-primary-color: var(--color-white);
+  --button-primary-color: var(--theme-color-white);
   --button-primary-background-color: var(--color-primary);
   --button-primary-border: 2px solid var(--color-primary);
 
@@ -174,6 +174,5 @@
   // ################################################################
   --menu-height: 3.33rem;
   --menu-mobile-height: 2.667rem;
-
-
 }
+
