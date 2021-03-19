@@ -1,0 +1,27 @@
+@import '../styles/shared';
+
+.Services {
+  @include container-layout-grid;
+  grid-template-areas:". service service service service .";
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0;
+
+  > div {
+    grid-area: service;
+  }
+
+  footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+
+    p {
+      flex: 1 1 30%;
+      max-width: 30%;
+    }
+  }
+
+}

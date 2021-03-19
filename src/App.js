@@ -3,6 +3,7 @@ import Sidebar from './components/Sidebar';
 import Hero from './components/Hero';
 import MenuPanel from './components/MenuPanel';
 import { AppProvider } from './AppContext';
+import Services from './components/Services';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <MenuPanel />
 
         <Hero />
+        <Services />
       </div>
     </AppProvider>
   );
