@@ -109,6 +109,8 @@ body {
   letter-spacing: var(--text-letter-spacing);
   font-kerning: var(--kerning);
 
+  // this is needed for the theme-dark transition
+  transition: background-color .5s cubic-bezier(0.69, 0, 0.27, 1);
 
   //@if $use-variable-font {
   //  @supports (font-variation-settings: normal) {
@@ -349,7 +351,6 @@ blockquote {
 }
 
 
-
 // ################################################################
 //    COLORS DARK MODE
 // ################################################################
@@ -360,8 +361,6 @@ blockquote {
   --theme-color-black: var(--color-white);
   --theme-color-white: var(--color-black);
   --color-body-background: var(--color-black);
-
-  transition: background-color .5s cubic-bezier(0.69, 0, 0.27, 1);
 
   * {
     color: var(--color-primary);

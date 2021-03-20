@@ -1,24 +1,36 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './Services.module.scss';
 import gsap from 'gsap';
-import servicesStyles from './Services.module.scss';
 
 const Services = () => {
   const servicesRef = useRef();
+  const p1Ref = useRef();
+  const p2Ref = useRef();
+  const p3Ref = useRef();
 
   useEffect(() => {
     if (servicesRef.current) {
-      gsap.to(servicesRef.current, {
-        scrollTrigger: {
-          trigger: servicesRef.current,
-          pin: false, // pin the trigger element while active
-          start: 'top center', // when the top of the trigger hits the bottom of the viewport
-          end: 'bottom top', // end after scrolling 500px beyond the start
-          // toggleClass: servicesStyles.ThemeDark,
-          toggleClass: { targets: 'body', className: 'theme-dark' /*servicesStyles.ThemeDark */ },
-          markers: true
+      gsap.fromTo(
+        [p1Ref.current, p2Ref.current, p3Ref.current],
+        {
+          autoAlpha: 0,
+          y: '150%'
+        },
+        {
+          duration: 1,
+          autoAlpha: 1,
+          y: 0,
+          stagger: 0.5,
+          ease: 'circ.out',
+          scrollTrigger: {
+            trigger: servicesRef.current,
+            start: 'top center', // when the top of the trigger hits the bottom of the viewport
+            end: 'bottom center', // end when the bottom of the trigger hits the top of the viewport
+            toggleClass: { targets: 'body', className: 'theme-dark' }
+            // markers: true
+          }
         }
-      });
+      );
     }
   }, []);
 
@@ -27,9 +39,9 @@ const Services = () => {
       <div>
         <h1>Lorem Ipsum sin ut dolorem</h1>
         <footer>
-          <p>Vero omnis sed recusandae voluptas repellat in omnis. Et maiores cumque incidunt voluptatum est.</p>
-          <p>Vero omnis sed recusandae voluptas repellat in omnis. Et maiores cumque incidunt voluptatum est.</p>
-          <p>Vero omnis sed recusandae voluptas repellat in omnis. Et maiores cumque incidunt voluptatum est.</p>
+          <p ref={p1Ref}>Vero omnis sed recusandae voluptas repellat in omnis. Et maiores cumque incidunt voluptatum est.</p>
+          <p ref={p2Ref}>Vero omnis sed recusandae voluptas repellat in omnis. Et maiores cumque incidunt voluptatum est.</p>
+          <p ref={p3Ref}>Vero omnis sed recusandae voluptas repellat in omnis. Et maiores cumque incidunt voluptatum est.</p>
         </footer>
       </div>
     </article>

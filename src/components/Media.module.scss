@@ -1,0 +1,18 @@
+@import '../styles/shared';
+
+.MediaContainer {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.Media {
+  grid-column-start: 2;
+  grid-column-end: span 2;
+
+  &:nth-child(even){
+    grid-column-start: 4;
+  }
+}
