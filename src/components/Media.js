@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback } from 'react';
 import gsap from 'gsap';
 import styles from './Media.module.scss';
 
