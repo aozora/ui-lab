@@ -13,23 +13,10 @@
 
   grid-column-start: 2;
   grid-column-end: span 2;
-  //transition: transform 1s var(--ease);
   overflow: hidden;
   will-change: transform, opacity;
 
   &:nth-child(even) {
     grid-column-start: 4;
   }
-
-  img {
-    //transition: transform 1s var(--ease);
-  }
-
-  //&:hover {
-  //  transform: scale(.85);
-  //
-  //  img {
-  //    transform: scale(1.2);
-  //  }
-  //}
 }
